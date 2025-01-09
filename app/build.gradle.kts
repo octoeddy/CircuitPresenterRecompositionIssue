@@ -2,11 +2,12 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.parcelize)
 }
 
 android {
     namespace = "com.octoeddy.circuitpresenter"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.octoeddy.circuitpresenter"
@@ -56,4 +57,8 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.circuit.runtime)
+    implementation(libs.circuit.foundation)
+    implementation(libs.circuit.retained)
 }
