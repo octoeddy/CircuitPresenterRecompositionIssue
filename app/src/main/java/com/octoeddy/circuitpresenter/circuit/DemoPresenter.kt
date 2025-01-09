@@ -22,7 +22,7 @@ object DemoPresenter : Presenter<DemoUiState> {
 
         val message = result?.fold(
             onFailure = {
-                "Something went wrong!"
+                it.message ?: "Something went wrong!"
             },
             onSuccess = {
                 it
