@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.slack.circuit.retained.collectAsRetainedState
+import com.slack.circuit.retained.produceRetainedState
 import com.slack.circuit.runtime.CircuitContext
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.presenter.Presenter
@@ -17,8 +19,7 @@ object DemoPresenter : Presenter<DemoUiState> {
     override fun present(): DemoUiState {
         Log.i("DemoPresenter", "present()")
 
-        val result by useCase().collectAsStateWithLifecycle(null)
-
+        val result by useCase().collectAsRetainedState(null)
 
         val message = result?.fold(
             onFailure = {
